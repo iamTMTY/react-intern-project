@@ -1,40 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function BottomBar() {
-	const active = "active";
-	const inActive = "inActive";
-	const path = { name: document.location.pathname };
-	// console.log(path);
-
-	const initialState = [
-		{
-			path: "/",
-			id: inActive
-		},
-		{
-			path: "/activity",
-			id: inActive
-		},
-		{
-			path: "/wallet",
-			id: inActive
-		},
-		{
-			path: "/market",
-			id: inActive
-		},
-		{
-			path: "/earn",
-			id: inActive
-		}
-	];
-	const [page, setPage] = useState(initialState);
-
-	useEffect(() => {
-		pageHandler(path.name);
-	}, []);
-
+export default function BottomBar({ page, pageHandler }) {
 	const clickHandler = (e) => {
 		// console.log(e.target);
 		let path = e.target.pathname;
@@ -45,28 +12,6 @@ export default function BottomBar() {
 		pageHandler(path);
 		// console.log(path);
 	};
-
-	const pageHandler = (path) => {
-		const newState = initialState.map((page) => {
-			if (path === page.path) {
-				return {
-					path: page.path,
-					id: active
-				};
-			} else {
-				return {
-					path: page.path,
-					id: inActive
-				};
-			}
-		});
-
-		setPage(newState);
-	};
-
-	// const getStyles = () => {
-
-	// }
 
 	return (
 		<nav className="bottom-bar">

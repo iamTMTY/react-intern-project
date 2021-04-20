@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Intro from "../Intro";
 import SelectCurrency from "../SelectCurrency";
 
-export default function Home() {
+export default function Home({ page, pageHandler }) {
+	useEffect(() => {
+		if (page[0].id !== "active") {
+			pageHandler(page[0].path);
+		}
+	}, []);
+
 	return (
 		<div className="home content">
 			<Intro />

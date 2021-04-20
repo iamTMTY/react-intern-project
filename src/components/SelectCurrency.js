@@ -14,8 +14,10 @@ export default function SelectCurrency() {
 					</select>
 					<input name="amount" type="number" step="0.1" placeholder="0.00000001" />
 				</div>
-				<input type="submit" name="send" value="send" />
-				<input type="submit" name="recieve" value="recieve" />
+				<div className="sel-cur-btn">
+					<input type="submit" name="send" value="send" />
+					<input type="submit" name="recieve" value="recieve" />
+				</div>
 			</form>
 		</div>
 	);

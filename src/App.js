@@ -7,18 +7,56 @@ import Activity from "./components/pages/Activity";
 import Wallet from "./components/pages/Wallet";
 import Market from "./components/pages/Market";
 import Earn from "./components/pages/Earn";
+import usePage from "./hooks/usePage";
 
 function App() {
+	// const active = "active";
+	const inActive = "inActive";
+
+	const initialState = [
+		{
+			path: "/",
+			id: inActive
+		},
+		{
+			path: "/activity",
+			id: inActive
+		},
+		{
+			path: "/wallet",
+			id: inActive
+		},
+		{
+			path: "/market",
+			id: inActive
+		},
+		{
+			path: "/earn",
+			id: inActive
+		}
+	];
+
+	const [page, pageHandler] = usePage(initialState);
+
 	return (
 		<BrowserRouter>
 			<div className="App">
 				<Header />
-				<Route exact path="/" render={(props) => <Home />} />
-				<Route path="/activity" render={(props) => <Activity />} />
-				<Route path="/wallet" render={(props) => <Wallet />} />
-				<Route path="/market" render={(props) => <Market />} />
-				<Route path="/earn" render={(props) => <Earn />} />
-				<BottomBar />
+				<Route exact path="/" render={(props) => <Home page={page} pageHandler={pageHandler} />} />
+				<Route
+					path="/activity"
+					render={(props) => <Activity page={page} pageHandler={pageHandler} />}
+				/>
+				<Route
+					path="/wallet"
+					render={(props) => <Wallet page={page} pageHandler={pageHandler} />}
+				/>
+				<Route
+					path="/market"
+					render={(props) => <Market page={page} pageHandler={pageHandler} />}
+				/>
+				<Route path="/earn" render={(props) => <Earn page={page} pageHandler={pageHandler} />} />
+				<BottomBar page={page} pageHandler={pageHandler} />
 			</div>
 		</BrowserRouter>
 	);
