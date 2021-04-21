@@ -214,7 +214,7 @@ form input[type="submit"] {
 }
 
 .activity i {
-	font-size: var(--font-1);
+	font-size: 1rem;
 	color: #e1267b;
 }
 
