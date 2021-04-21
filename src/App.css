@@ -19,29 +19,39 @@ body {
 
 .App {
 	overflow: hidden;
-	height: 100vmin;
+	height: 100%;
 }
 
 .content {
-	padding: 20px 0;
+	padding: 100px 0 50px 0;
 	display: flex;
-	overflow-y: scroll;
+	overflow: scroll;
 	flex-direction: column;
-	height: calc(100% - 140px);
+	height: 100vh;
 }
 
 .app-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 70px;
+	background-color: #fff;
 }
 
 .bottom-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	height: 70px;
+	background-color: #fff;
 }
 
 .app-header-content {
